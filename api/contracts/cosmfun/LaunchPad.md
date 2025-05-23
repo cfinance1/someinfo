@@ -14,16 +14,16 @@ contract LaunchPad is AccessControlUpgradeable
 ### LaunchConfig
 
 ```solidity
-struct LaunchConfig {
-	uint256 maxSubscribeNum;
-	uint256 subscribeAmount;
-	uint256 toStaking;
-	uint256 toMarketing;
-	uint256 toLp;
-	uint256 stakingLockDuration;
-	uint256 lpLockDuration;
-	uint256 lpUnlockGapNum;
-	uint256 lpUnlockGap;
+struct LaunchConfig{
+    uint256 maxSubscribeNum; // 认购数量上限
+    uint256 subscribeAmount; // 认购BNB费用
+    uint256 toStaking;      // 认购费用中staking的数量
+    uint256 toMarketing;    // 认购费用中转到market的数量
+    uint256 toLp;           // 认购费用中组LP的数量
+    uint256 stakingLockDuration;    // staking锁定秒数
+    uint256 lpLockDuration;         // LP锁定秒数
+    uint256 lpUnlockGapNum;         // LP解锁段数，分10段，每段解锁10%
+    uint256 lpUnlockGap;            // LP每一段解锁所需秒数
 }
 ```
 
@@ -55,12 +55,12 @@ struct LpInfo {
 
 ```solidity
 struct RetStakeInfo {
-	uint256 tokenAmount;
-	uint256 sTOKENGons;
-	uint256 sTokenAmount;
-	uint256 sTokenUnlockedAmount;
-	uint256 startTime;
-	uint256 endTime;
+    uint256 tokenAmount;    // Staking的CSM本金数量
+    uint256 sTOKENGons;     // Staking的sCSM的gons
+    uint256 sTokenAmount;   // Staking的sCSM的总数量
+    uint256 sTokenUnlockedAmount;   // 用户已解锁的sCSM的数量
+    uint256 startTime;      // Staking的开始锁定时间
+    uint256 endTime;        // Staking的结束锁定时间
 }
 ```
 
@@ -69,11 +69,11 @@ struct RetStakeInfo {
 
 ```solidity
 struct RetLpInfo {
-	uint256 lpAmt;
-	uint256 unlockAmt;
-	uint256 unlockedAmt;
-	uint256 startTime;
-	uint256 endTime;
+    uint256 lpAmt;      // 已锁定LP的总数量
+    uint256 unlockAmt;  // 已锁定LP的当前可解锁总数
+    uint256 unlockedAmt;    // 用户已解锁的LP数量
+    uint256 startTime;  // 已锁定LP的CSM本金数量
+    uint256 endTime;    // 已锁定LP的CSM本金数量
 }
 ```
 
