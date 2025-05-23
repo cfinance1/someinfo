@@ -123,7 +123,7 @@
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "toBuyBackAmount",
+        "name": "toBackBurnAmount",
         "type": "uint256"
       }
     ],

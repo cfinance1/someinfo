@@ -17,6 +17,16 @@ contract TokenFun is ERC20, ERC20Permit, AccessControl
 event EventAllotFee(uint256 allotTime, uint256 allotAmount, uint256 amountToFoundation)
 ```
 
+分配手续费事件
+
+
+Parameters:
+
+| Name               | Type    | Description     |
+| :----------------- | :------ | :-------------- |
+| allotTime          | uint256 | 下次分配手续费时间       |
+| allotAmount        | uint256 | 分配手续费数量         |
+| amountToFoundation | uint256 | 分配到market的手续费数量 |
 
 ### EventToLp
 
@@ -24,6 +34,17 @@ event EventAllotFee(uint256 allotTime, uint256 allotAmount, uint256 amountToFoun
 event EventToLp(uint256 toLpAmount, uint256 liquidity, uint256 costToken, uint256 costETH)
 ```
 
+部分手续费用来添加LP
+
+
+Parameters:
+
+| Name       | Type    | Description   |
+| :--------- | :------ | :------------ |
+| toLpAmount | uint256 | 用来添加LP的手续费数量  |
+| liquidity  | uint256 | 添加的LP数量       |
+| costToken  | uint256 | LP的MEME数量     |
+| costETH    | uint256 | LP的ETH数量      |
 
 ### EventToBottomPool
 
@@ -31,6 +52,14 @@ event EventToLp(uint256 toLpAmount, uint256 liquidity, uint256 costToken, uint25
 event EventToBottomPool(uint256 toBottomAmount)
 ```
 
+部分手续费用来添加到拖底池
+
+
+Parameters:
+
+| Name           | Type    | Description  |
+| :------------- | :------ | :----------- |
+| toBottomAmount | uint256 | 添加到拖底池的手续费数量 |
 
 ### EventToFoundation
 
@@ -38,13 +67,30 @@ event EventToBottomPool(uint256 toBottomAmount)
 event EventToFoundation(address foundation, uint256 amount)
 ```
 
+部分手续费用来转移到market
+
+
+Parameters:
+
+| Name       | Type    | Description     |
+| :--------- | :------ | :-------------- |
+| foundation | address | 接收手续费的地址        |
+| amount     | uint256 | 转移到market的手续费数量 |
 
 ### EventToBackBurn
 
 ```solidity
-event EventToBackBurn(uint256 toBuyBackAmount)
+event EventToBackBurn(uint256 toBackBurnAmount)
 ```
 
+部分手续费用来回购销毁
+
+
+Parameters:
+
+| Name             | Type    | Description |
+| :--------------- | :------ | :---------- |
+| toBackBurnAmount | uint256 | 销毁CSF数量     |
 
 ### FeeRatioChanged
 
