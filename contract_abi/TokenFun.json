@@ -33,13 +33,28 @@
       },
       {
         "internalType": "address",
-        "name": "funSubscribe_",
+        "name": "foundation_",
         "type": "address"
       },
       {
-        "internalType": "address",
-        "name": "foundation_",
-        "type": "address"
+        "internalType": "uint256",
+        "name": "swapLimitPeriod_",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "maxSwapLimit_",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "minAllotFee_",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256[2][]",
+        "name": "feeConfigs_",
+        "type": "uint256[2][]"
       }
     ],
     "stateMutability": "nonpayable",
@@ -410,6 +425,19 @@
   },
   {
     "inputs": [],
+    "name": "INTERN_SYSTEM_MANAGER",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "LPLOCK_POOL",
     "outputs": [
       {
@@ -423,7 +451,7 @@
   },
   {
     "inputs": [],
-    "name": "MIN_SWAP_LIMIT",
+    "name": "MAX_SWAP_LIMIT",
     "outputs": [
       {
         "internalType": "uint256",
@@ -449,38 +477,12 @@
   },
   {
     "inputs": [],
-    "name": "UNISWAPV2ROUTER",
-    "outputs": [
-      {
-        "internalType": "contract IUniswapRouter",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "WBNB",
+    "name": "WETH",
     "outputs": [
       {
         "internalType": "address",
         "name": "",
         "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "allotTime",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -921,19 +923,6 @@
   {
     "inputs": [
       {
-        "internalType": "uint256",
-        "name": "allotTime_",
-        "type": "uint256"
-      }
-    ],
-    "name": "setAllotTime",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "address",
         "name": "foundation_",
         "type": "address"
@@ -966,6 +955,19 @@
       }
     ],
     "name": "setMinAllotFee",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "router_",
+        "type": "address"
+      }
+    ],
+    "name": "setSwapRouter",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -1092,6 +1094,19 @@
       }
     ],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "uniswapV2Router",
+    "outputs": [
+      {
+        "internalType": "contract IUniswapRouter",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {

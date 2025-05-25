@@ -9,21 +9,35 @@ contract LaunchPad is AccessControlUpgradeable
 ```
 
 
+## Enums info
+
+### State
+
+```solidity
+enum State {
+	 EMPTY,
+	 OVER,
+	 FORCEOVER,
+	 CANCEL
+}
+```
+
+
 ## Structs info
 
 ### LaunchConfig
 
 ```solidity
-struct LaunchConfig{
-    uint256 maxSubscribeNum; // 认购数量上限
-    uint256 subscribeAmount; // 认购BNB费用
-    uint256 toStaking;      // 认购费用中staking的数量
-    uint256 toMarketing;    // 认购费用中转到market的数量
-    uint256 toLp;           // 认购费用中组LP的数量
-    uint256 stakingLockDuration;    // staking锁定秒数
-    uint256 lpLockDuration;         // LP锁定秒数
-    uint256 lpUnlockGapNum;         // LP解锁段数，分10段，每段解锁10%
-    uint256 lpUnlockGap;            // LP每一段解锁所需秒数
+struct LaunchConfig {
+	uint256 maxSubscribeNum;
+	uint256 subscribeAmount;
+	uint256 toStaking;
+	uint256 toMarketing;
+	uint256 toLp;
+	uint256 stakingLockDuration;
+	uint256 lpLockDuration;
+	uint256 lpUnlockGapNum;
+	uint256 lpUnlockGap;
 }
 ```
 
@@ -55,12 +69,12 @@ struct LpInfo {
 
 ```solidity
 struct RetStakeInfo {
-    uint256 tokenAmount;    // Staking的CSM本金数量
-    uint256 sTOKENGons;     // Staking的sCSM的gons
-    uint256 sTokenAmount;   // Staking的sCSM的总数量
-    uint256 sTokenUnlockedAmount;   // 用户已解锁的sCSM的数量
-    uint256 startTime;      // Staking的开始锁定时间
-    uint256 endTime;        // Staking的结束锁定时间
+	uint256 tokenAmount;
+	uint256 sTOKENGons;
+	uint256 sTokenAmount;
+	uint256 sTokenUnlockedAmount;
+	uint256 startTime;
+	uint256 endTime;
 }
 ```
 
@@ -69,11 +83,11 @@ struct RetStakeInfo {
 
 ```solidity
 struct RetLpInfo {
-    uint256 lpAmt;      // 已锁定LP的总数量
-    uint256 unlockAmt;  // 已锁定LP的当前可解锁总数
-    uint256 unlockedAmt;    // 用户已解锁的LP数量
-    uint256 startTime;  // 已锁定LP的CSM本金数量
-    uint256 endTime;    // 已锁定LP的CSM本金数量
+	uint256 lpAmt;
+	uint256 unlockAmt;
+	uint256 unlockedAmt;
+	uint256 startTime;
+	uint256 endTime;
 }
 ```
 
@@ -83,7 +97,7 @@ struct RetLpInfo {
 ### EventSubscribe
 
 ```solidity
-event EventSubscribe(address indexed meToken, address indexed user)
+event EventSubscribe(address indexed meToken, address indexed user, uint256 amount)
 ```
 
 认购事件
@@ -95,6 +109,7 @@ Parameters:
 | :------ | :------ | :---------- |
 | meToken | address | MEME地址      |
 | user    | address | 用户地址        |
+| amount  | uint256 | 认购数量        |
 
 ### EventUnlockStaking
 
@@ -306,10 +321,10 @@ mapping(address => uint256) subscribeNum
 ```
 
 
-### isEnd (0x7e18e27e)
+### subscribeState (0xd353c0b7)
 
 ```solidity
-mapping(address => bool) isEnd
+mapping(address => uint256) subscribeState
 ```
 
 
@@ -417,7 +432,8 @@ function subscribeInfo(
     external
     view
     returns (
-        bool isEnd_,
+        uint256 subscribeState_,
+        bool isSubscribe_,
         uint256 subscribeNum_,
         LaunchPad.LaunchConfig memory configInfo_,
         LaunchPad.RetStakeInfo memory stakeInfo_,
@@ -438,13 +454,14 @@ Parameters:
 
 Return values:
 
-| Name          | Type                          | Description         |
-| :------------ | :---------------------------- | :------------------ |
-| isEnd_        | bool                          | 是否认购结束              |
-| subscribeNum_ | uint256                       | 当前认购人数              |
-| configInfo_   | struct LaunchPad.LaunchConfig | 参考LaunchConfig类型数据  |
-| stakeInfo_    | struct LaunchPad.RetStakeInfo | 参考RetStakeInfo类型数据  |
-| lpInfo_       | struct LaunchPad.RetLpInfo    | 参考RetLpInfo类型       |
+| Name            | Type                          | Description                                 |
+| :-------------- | :---------------------------- | :------------------------------------------ |
+| subscribeState_ | uint256                       | 认购状态，0是未认购结束，1是已正常完成认购，2是完成认购时人数未凑足，3是认购失败  |
+| isSubscribe_    | bool                          | 是否已认购                                       |
+| subscribeNum_   | uint256                       | 当前认购人数                                      |
+| configInfo_     | struct LaunchPad.LaunchConfig | 参考LaunchConfig类型数据                          |
+| stakeInfo_      | struct LaunchPad.RetStakeInfo | 参考RetStakeInfo类型数据                          |
+| lpInfo_         | struct LaunchPad.RetLpInfo    | 参考RetLpInfo类型                               |
 
 ### subscribe (0x41a7726a)
 

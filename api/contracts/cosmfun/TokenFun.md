@@ -108,6 +108,13 @@ event FeeTaken(address indexed payer, address indexed receiver, bool isBuy, uint
 
 ## Constants info
 
+### INTERN_SYSTEM_MANAGER (0xc2524a4a)
+
+```solidity
+bytes32 constant INTERN_SYSTEM_MANAGER = keccak256("INTERN_SYSTEM_MANAGER")
+```
+
+
 ### FEE_MANAGER (0xea26266c)
 
 ```solidity
@@ -122,13 +129,6 @@ bytes32 constant INTERN_SYSTEM = keccak256("INTERN_SYSTEM")
 ```
 
 
-### MIN_SWAP_LIMIT (0x9c3638c1)
-
-```solidity
-uint256 constant MIN_SWAP_LIMIT = 1e9 * 1e18
-```
-
-
 ### PRECISION (0xaaf5eb68)
 
 ```solidity
@@ -138,10 +138,10 @@ uint256 constant PRECISION = 100e3
 
 ## State variables info
 
-### WBNB (0x8dd95002)
+### MAX_SWAP_LIMIT (0x7d155108)
 
 ```solidity
-address immutable WBNB
+uint256 immutable MAX_SWAP_LIMIT
 ```
 
 
@@ -159,10 +159,17 @@ address immutable LPLOCK_POOL
 ```
 
 
-### UNISWAPV2ROUTER (0xa8b62f7b)
+### uniswapV2Router (0x1694505e)
 
 ```solidity
-contract IUniswapRouter immutable UNISWAPV2ROUTER
+contract IUniswapRouter uniswapV2Router
+```
+
+
+### WETH (0xad5c4648)
+
+```solidity
+address WETH
 ```
 
 
@@ -201,17 +208,10 @@ uint256[2][] feeConfigs
 ```
 
 
-### allotTime (0xc3dd80c7)
-
-```solidity
-uint256 allotTime
-```
-
-
 ### swapLimitPeriod (0x1f465ac5)
 
 ```solidity
-uint256 swapLimitPeriod = 3600
+uint256 swapLimitPeriod
 ```
 
 
@@ -264,8 +264,11 @@ constructor(
     address uniswapV2Router_,
     address bottomPool_,
     address lpLockPool_,
-    address funSubscribe_,
-    address foundation_
+    address foundation_,
+    uint256 swapLimitPeriod_,
+    uint256 maxSwapLimit_,
+    uint256 minAllotFee_,
+    uint256[2][] memory feeConfigs_
 ) ERC20(name_, symbol_) ERC20Permit(name_)
 ```
 
@@ -274,6 +277,13 @@ constructor(
 
 ```solidity
 function setMainPair(address pair_) external onlyDefaultAdmin
+```
+
+
+### setSwapRouter (0x41273657)
+
+```solidity
+function setSwapRouter(address router_) external onlyFeeManager
 ```
 
 
@@ -288,12 +298,5 @@ function setMinAllotFee(uint256 value_) external onlyFeeManager
 
 ```solidity
 function setFoundation(address foundation_) external onlyFeeManager
-```
-
-
-### setAllotTime (0x84969c2b)
-
-```solidity
-function setAllotTime(uint256 allotTime_) external onlyFeeManager
 ```
 
