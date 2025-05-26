@@ -206,6 +206,32 @@ Return values:
 | :----- | :------ | :----------------- |
 | price_ | uint256 | 1个MEME购买到的token的数量 |
 
+### getMETokenRedeemCount (0xc3f4ad06)
+
+```solidity
+function getMETokenRedeemCount(
+    address meToken_,
+    uint256 metTokenAmount_
+) external view returns (uint256 price_)
+```
+
+MEME兑换到的sToken的数量
+
+
+Parameters:
+
+| Name            | Type    | Description |
+| :-------------- | :------ | :---------- |
+| meToken_        | address | MEME地址      |
+| metTokenAmount_ | uint256 | MEME的数量     |
+
+
+Return values:
+
+| Name   | Type    | Description   |
+| :----- | :------ | :------------ |
+| price_ | uint256 | 兑换到的sToken的数量 |
+
 ### buyBack (0xd1b8df22)
 
 ```solidity

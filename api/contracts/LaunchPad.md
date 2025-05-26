@@ -311,13 +311,6 @@ mapping(address => struct LaunchPad.LpInfo) lpLockData
 ```
 
 
-### minSubscribeNum (0x3520ee09)
-
-```solidity
-mapping(address => uint256) minSubscribeNum
-```
-
-
 ### subscribeNum (0xd0c71c50)
 
 ```solidity

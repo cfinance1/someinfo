@@ -348,6 +348,30 @@
   {
     "inputs": [
       {
+        "internalType": "address",
+        "name": "meToken_",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "metTokenAmount_",
+        "type": "uint256"
+      }
+    ],
+    "name": "getMETokenRedeemCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "price_",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "bytes32",
         "name": "role",
         "type": "bytes32"
