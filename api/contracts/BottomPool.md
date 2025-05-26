@@ -14,7 +14,7 @@ contract BottomPool is AccessControlUpgradeable
 ### EventSellMEToken
 
 ```solidity
-event EventSellMEToken(address indexed meToken, address indexed recipient, uint256 costMETokenAmount, uint256 buyTokenAmount)
+event EventSellMEToken(address indexed meToken, address indexed recipient, uint256 costMETokenAmount, uint256 redeemTokenAmount, uint256 sTokenTotal, uint256 newTokenPrincipal, uint256 newGonsPrincipal)
 ```
 
 出售MEMEtoken，购买sCSM
@@ -22,12 +22,15 @@ event EventSellMEToken(address indexed meToken, address indexed recipient, uint2
 
 Parameters:
 
-| Name              | Type    | Description |
-| :---------------- | :------ | :---------- |
-| meToken           | address | MEME地址      |
-| recipient         | address | 接受sCSM的地址   |
-| costMETokenAmount | uint256 | 消耗MEME数量    |
-| buyTokenAmount    | uint256 | 购买到的sCSM的数量 |
+| Name              | Type    | Description   |
+| :---------------- | :------ | :------------ |
+| meToken           | address | MEME地址        |
+| recipient         | address | 接受sCSM的地址     |
+| costMETokenAmount | uint256 | 消耗MEME数量      |
+| redeemTokenAmount | uint256 | 购买到的sCSM的数量   |
+| sTokenTotal       | uint256 | 购买前sToken的总量  |
+| newTokenPrincipal | uint256 | 新的本金          |
+| newGonsPrincipal  | uint256 | 新的gons        |
 
 ### EventBottomBuyBack
 
@@ -181,30 +184,6 @@ Parameters:
 | meToken_   | address | MEME地址      |
 | amount_    | uint256 | meme的数量     |
 | recipient_ | address | 接收sCSM的地址   |
-
-### getMETokenPrice (0xe132a9d7)
-
-```solidity
-function getMETokenPrice(
-    address meToken_
-) external view returns (uint256 price_)
-```
-
-MEME的价格
-
-
-Parameters:
-
-| Name     | Type    | Description |
-| :------- | :------ | :---------- |
-| meToken_ | address | MEME地址      |
-
-
-Return values:
-
-| Name   | Type    | Description        |
-| :----- | :------ | :----------------- |
-| price_ | uint256 | 1个MEME购买到的token的数量 |
 
 ### getMETokenRedeemCount (0xc3f4ad06)
 

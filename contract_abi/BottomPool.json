@@ -96,7 +96,25 @@
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "buyTokenAmount",
+        "name": "redeemTokenAmount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "sTokenTotal",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "newTokenPrincipal",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "newGonsPrincipal",
         "type": "uint256"
       }
     ],
@@ -324,25 +342,6 @@
     "name": "buyBack",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "meToken_",
-        "type": "address"
-      }
-    ],
-    "name": "getMETokenPrice",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "price_",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
     "type": "function"
   },
   {
