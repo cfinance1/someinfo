@@ -489,6 +489,13 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "allotFee",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
