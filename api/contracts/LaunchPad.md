@@ -29,6 +29,8 @@ enum State {
 
 ```solidity
 struct LaunchConfig {
+	uint256 startSubscribeTime;
+	uint256 endSubscribeTime;
 	uint256 maxSubscribeNum;
 	uint256 subscribeAmount;
 	uint256 toStaking;
@@ -170,7 +172,7 @@ Parameters:
 ### EventCompleteSubscribe
 
 ```solidity
-event EventCompleteSubscribe(address indexed meToken, LaunchPad.StakeInfo stakeData, LaunchPad.LpInfo lpLockData)
+event EventCompleteSubscribe(address indexed meToken, uint256 subscribeState, LaunchPad.StakeInfo stakeData, LaunchPad.LpInfo lpLockData)
 ```
 
 认购结束事件，记录完成资金操作后的全部信息
@@ -178,11 +180,12 @@ event EventCompleteSubscribe(address indexed meToken, LaunchPad.StakeInfo stakeD
 
 Parameters:
 
-| Name       | Type                       | Description  |
-| :--------- | :------------------------- | :----------- |
-| meToken    | address                    | MEME地址       |
-| stakeData  | struct LaunchPad.StakeInfo | StakeInfo数据  |
-| lpLockData | struct LaunchPad.LpInfo    | LpInfo数据     |
+| Name           | Type                       | Description                                 |
+| :------------- | :------------------------- | :------------------------------------------ |
+| meToken        | address                    | MEME地址                                      |
+| subscribeState | uint256                    | 认购状态，0是未认购结束，1是已正常完成认购，2是完成认购时人数未凑足，3是认购失败  |
+| stakeData      | struct LaunchPad.StakeInfo | StakeInfo数据                                 |
+| lpLockData     | struct LaunchPad.LpInfo    | LpInfo数据                                    |
 
 ## Constants info
 
@@ -376,7 +379,7 @@ function initialize() public initializer
 ```
 
 
-### initMETokenSubscribe (0xb8efaef6)
+### initMETokenSubscribe (0xdc90fff5)
 
 ```solidity
 function initMETokenSubscribe(
@@ -477,6 +480,13 @@ Parameters:
 | Name     | Type    | Description |
 | :------- | :------ | :---------- |
 | meToken_ | address | MEMEtoken地址 |
+
+### completeSubscribe (0x0b68a1aa)
+
+```solidity
+function completeSubscribe(address meToken_) external
+```
+
 
 ### unlockStaking (0x4f88865c)
 

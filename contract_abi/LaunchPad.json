@@ -55,6 +55,12 @@
         "type": "address"
       },
       {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "subscribeState",
+        "type": "uint256"
+      },
+      {
         "components": [
           {
             "internalType": "uint256",
@@ -473,6 +479,19 @@
   {
     "inputs": [
       {
+        "internalType": "address",
+        "name": "meToken_",
+        "type": "address"
+      }
+    ],
+    "name": "completeSubscribe",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "bytes32",
         "name": "role",
         "type": "bytes32"
@@ -564,6 +583,16 @@
       },
       {
         "components": [
+          {
+            "internalType": "uint256",
+            "name": "startSubscribeTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "endSubscribeTime",
+            "type": "uint256"
+          },
           {
             "internalType": "uint256",
             "name": "maxSubscribeNum",
@@ -661,6 +690,16 @@
     ],
     "name": "launchConfig",
     "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "startSubscribeTime",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "endSubscribeTime",
+        "type": "uint256"
+      },
       {
         "internalType": "uint256",
         "name": "maxSubscribeNum",
@@ -923,6 +962,16 @@
       },
       {
         "components": [
+          {
+            "internalType": "uint256",
+            "name": "startSubscribeTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "endSubscribeTime",
+            "type": "uint256"
+          },
           {
             "internalType": "uint256",
             "name": "maxSubscribeNum",

@@ -23,6 +23,11 @@
       },
       {
         "internalType": "address",
+        "name": "launchPad_",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
         "name": "bottomPool_",
         "type": "address"
       },
@@ -44,11 +49,6 @@
       {
         "internalType": "uint256",
         "name": "maxSwapLimit_",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "minAllotFee_",
         "type": "uint256"
       },
       {

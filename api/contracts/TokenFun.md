@@ -183,7 +183,7 @@ address mainPair
 ### minAllotFee (0x3c69a8d2)
 
 ```solidity
-uint256 minAllotFee = 100*1e18
+uint256 minAllotFee = 1000000*1e18
 ```
 
 
@@ -245,6 +245,13 @@ modifier onlyFeeManager()
 ```
 
 
+### lockTheAllot
+
+```solidity
+modifier lockTheAllot()
+```
+
+
 ## Functions info
 
 ### receive
@@ -262,12 +269,12 @@ constructor(
     string memory symbol_,
     uint256 mintTotal,
     address uniswapV2Router_,
+    address launchPad_,
     address bottomPool_,
     address lpLockPool_,
     address foundation_,
     uint256 swapLimitPeriod_,
     uint256 maxSwapLimit_,
-    uint256 minAllotFee_,
     uint256[2][] memory feeConfigs_
 ) ERC20(name_, symbol_) ERC20Permit(name_)
 ```
@@ -298,5 +305,12 @@ function setMinAllotFee(uint256 value_) external onlyFeeManager
 
 ```solidity
 function setFoundation(address foundation_) external onlyFeeManager
+```
+
+
+### allotFee (0x56f0ef4b)
+
+```solidity
+function allotFee() external onlyFeeManager
 ```
 
