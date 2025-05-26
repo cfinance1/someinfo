@@ -90,6 +90,7 @@ struct RetLpInfo {
 	uint256 unlockedAmt;
 	uint256 startTime;
 	uint256 endTime;
+	uint256 nextUnlockTime;
 }
 ```
 

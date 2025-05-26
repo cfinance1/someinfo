@@ -1085,6 +1085,11 @@
             "internalType": "uint256",
             "name": "endTime",
             "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "nextUnlockTime",
+            "type": "uint256"
           }
         ],
         "internalType": "struct LaunchPad.RetLpInfo",
