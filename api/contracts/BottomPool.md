@@ -211,6 +211,16 @@ Return values:
 | :----- | :------ | :------------ |
 | price_ | uint256 | 兑换到的sToken的数量 |
 
+### getMETokenToTokenAmountBySwap (0xdea00d82)
+
+```solidity
+function getMETokenToTokenAmountBySwap(
+    address meToken_,
+    uint256 metTokenAmount_
+) external view returns (uint256)
+```
+
+
 ### buyBack (0xd1b8df22)
 
 ```solidity
@@ -226,5 +236,15 @@ function transferTokenOut(
     address addr_,
     uint256 amount
 ) external onlyManager
+```
+
+
+### _sortTokens (0xd54a3718)
+
+```solidity
+function _sortTokens(
+    address tokenA_,
+    address tokenB_
+) public pure returns (address token0_, address token1_)
 ```
 

@@ -330,6 +330,35 @@
     "inputs": [
       {
         "internalType": "address",
+        "name": "tokenA_",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "tokenB_",
+        "type": "address"
+      }
+    ],
+    "name": "_sortTokens",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "token0_",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "token1_",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
         "name": "meToken_",
         "type": "address"
       },
@@ -362,6 +391,30 @@
       {
         "internalType": "uint256",
         "name": "price_",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "meToken_",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "metTokenAmount_",
+        "type": "uint256"
+      }
+    ],
+    "name": "getMETokenToTokenAmountBySwap",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
         "type": "uint256"
       }
     ],

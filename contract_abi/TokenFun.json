@@ -33,11 +33,6 @@
       },
       {
         "internalType": "address",
-        "name": "lpLockPool_",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
         "name": "foundation_",
         "type": "address"
       },
@@ -49,6 +44,11 @@
       {
         "internalType": "uint256",
         "name": "maxSwapLimit_",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "minAllotFee_",
         "type": "uint256"
       },
       {
@@ -360,6 +360,19 @@
   },
   {
     "inputs": [],
+    "name": "BLACK_HOLE",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "BOTTOM_POOL",
     "outputs": [
       {
@@ -431,19 +444,6 @@
         "internalType": "bytes32",
         "name": "",
         "type": "bytes32"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "LPLOCK_POOL",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
       }
     ],
     "stateMutability": "view",

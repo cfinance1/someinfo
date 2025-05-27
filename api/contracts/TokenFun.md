@@ -11,6 +11,13 @@ contract TokenFun is ERC20, ERC20Permit, AccessControl
 
 ## Events info
 
+### FeeRatioChanged
+
+```solidity
+event FeeRatioChanged(uint256 ratio)
+```
+
+
 ### EventAllotFee
 
 ```solidity
@@ -92,13 +99,6 @@ Parameters:
 | :--------------- | :------ | :---------- |
 | toBackBurnAmount | uint256 | 销毁CSF数量     |
 
-### FeeRatioChanged
-
-```solidity
-event FeeRatioChanged(uint256 ratio)
-```
-
-
 ### FeeTaken
 
 ```solidity
@@ -107,6 +107,13 @@ event FeeTaken(address indexed payer, address indexed receiver, bool isBuy, uint
 
 
 ## Constants info
+
+### BLACK_HOLE (0x55eda4e8)
+
+```solidity
+address constant BLACK_HOLE = 0x000000000000000000000000000000000000dEaD
+```
+
 
 ### INTERN_SYSTEM_MANAGER (0xc2524a4a)
 
@@ -152,13 +159,6 @@ address immutable BOTTOM_POOL
 ```
 
 
-### LPLOCK_POOL (0x0b31b97b)
-
-```solidity
-address immutable LPLOCK_POOL
-```
-
-
 ### uniswapV2Router (0x1694505e)
 
 ```solidity
@@ -183,7 +183,7 @@ address mainPair
 ### minAllotFee (0x3c69a8d2)
 
 ```solidity
-uint256 minAllotFee = 1000000*1e18
+uint256 minAllotFee
 ```
 
 
@@ -271,10 +271,10 @@ constructor(
     address uniswapV2Router_,
     address launchPad_,
     address bottomPool_,
-    address lpLockPool_,
     address foundation_,
     uint256 swapLimitPeriod_,
     uint256 maxSwapLimit_,
+    uint256 minAllotFee_,
     uint256[2][] memory feeConfigs_
 ) ERC20(name_, symbol_) ERC20Permit(name_)
 ```
@@ -287,17 +287,17 @@ function setMainPair(address pair_) external onlyDefaultAdmin
 ```
 
 
+### allotFee (0x56f0ef4b)
+
+```solidity
+function allotFee() external onlyFeeManager
+```
+
+
 ### setSwapRouter (0x41273657)
 
 ```solidity
 function setSwapRouter(address router_) external onlyFeeManager
-```
-
-
-### setMinAllotFee (0x96b3fe8a)
-
-```solidity
-function setMinAllotFee(uint256 value_) external onlyFeeManager
 ```
 
 
@@ -308,9 +308,9 @@ function setFoundation(address foundation_) external onlyFeeManager
 ```
 
 
-### allotFee (0x56f0ef4b)
+### setMinAllotFee (0x96b3fe8a)
 
 ```solidity
-function allotFee() external onlyFeeManager
+function setMinAllotFee(uint256 value_) external onlyFeeManager
 ```
 
