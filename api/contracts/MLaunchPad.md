@@ -113,7 +113,7 @@ struct CreateConfig {
 ```solidity
 struct TokenFeeInfo {
 	address uniswapRouter;
-	address foundation;
+	address builder;
 	uint256 destructionAmount;
 	bool isVoting;
 }
@@ -293,10 +293,10 @@ event EventAddDestructionAmount(address indexed meToken, address indexed user, u
 ```
 
 
-### EventChangeMETokenFoundation
+### EventChangeMETokenBuilder
 
 ```solidity
-event EventChangeMETokenFoundation(address indexed meToken, address indexed user)
+event EventChangeMETokenBuilder(address indexed meToken, address indexed user)
 ```
 
 
@@ -696,12 +696,21 @@ function createToken(uint256 subscribeNum_) external payable
 ```
 
 
-### donateForMEToken (0xd191752d)
+### donateForMEToken (0xc183c454)
 
 ```solidity
-function donateForMEToken(address meToken_) external payable
+function donateForMEToken(address meToken_, uint256 amount_) external
 ```
 
+为MEME捐献CSF
+
+
+Parameters:
+
+| Name     | Type    | Description  |
+| :------- | :------ | :----------- |
+| meToken_ | address | memetoken地址  |
+| amount_  | uint256 | 捐献CSF数量      |
 
 ### subscribe (0x41a7726a)
 
@@ -814,10 +823,10 @@ function addDestructionAmountByVoting(
 ```
 
 
-### changeMETokenFoundation (0xc2c89dfe)
+### changeMETokenBuilder (0x66ba31db)
 
 ```solidity
-function changeMETokenFoundation(
+function changeMETokenBuilder(
     address meToken_,
     address user_
 ) external onlyVoting

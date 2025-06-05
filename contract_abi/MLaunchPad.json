@@ -156,7 +156,7 @@
         "type": "address"
       }
     ],
-    "name": "EventChangeMETokenFoundation",
+    "name": "EventChangeMETokenBuilder",
     "type": "event"
   },
   {
@@ -981,7 +981,7 @@
         "type": "address"
       }
     ],
-    "name": "changeMETokenFoundation",
+    "name": "changeMETokenBuilder",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -1124,11 +1124,16 @@
         "internalType": "address",
         "name": "meToken_",
         "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount_",
+        "type": "uint256"
       }
     ],
     "name": "donateForMEToken",
     "outputs": [],
-    "stateMutability": "payable",
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -1516,7 +1521,7 @@
       },
       {
         "internalType": "address",
-        "name": "foundation",
+        "name": "builder",
         "type": "address"
       },
       {
