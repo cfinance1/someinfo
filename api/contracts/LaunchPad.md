@@ -332,6 +332,13 @@ mapping(address => address) pairMETokenLP
 ```
 
 
+### lowestSwapCSM (0x1f2946c5)
+
+```solidity
+mapping(address => uint256) lowestSwapCSM
+```
+
+
 ## Modifiers info
 
 ### onlyManager
@@ -373,12 +380,23 @@ function initialize() public initializer
 ```
 
 
-### initMETokenSubscribe (0xdc90fff5)
+### initMETokenSubscribe (0xaf17adae)
 
 ```solidity
 function initMETokenSubscribe(
     address meToken_,
-    LaunchPad.LaunchConfig calldata config_
+    LaunchPad.LaunchConfig calldata config_,
+    uint256 lowestSwapCSM_
+) external onlyManager
+```
+
+
+### setMELowestSwapCSM (0x5fb7ef1d)
+
+```solidity
+function setMELowestSwapCSM(
+    address meToken_,
+    uint256 lowestSwapCSM_
 ) external onlyManager
 ```
 
