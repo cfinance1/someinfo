@@ -112,9 +112,8 @@ struct CreateConfig {
 
 ```solidity
 struct TokenFeeInfo {
-	address uniswapRouter;
 	address builder;
-	uint256 destructionAmount;
+	uint256 donatePoints;
 	bool isVoting;
 }
 ```
@@ -289,7 +288,7 @@ event EventAllotBonus(address indexed meToken, uint256 amount, uint256 bonusAmt,
 ### EventAddDestructionAmount
 
 ```solidity
-event EventAddDestructionAmount(address indexed meToken, address indexed user, uint256 destructionAmount, uint256 meTokenDestAmt)
+event EventAddDestructionAmount(address indexed meToken, address indexed user, uint256 donatePoints, uint256 meTokenDestAmt)
 ```
 
 
@@ -486,10 +485,10 @@ mapping(uint256 => struct MLaunchPad.CreateConfig) createTokenConfig
 ```
 
 
-### destructionAmounts (0x1c74d2a3)
+### userDonatePoints (0xa51ad287)
 
 ```solidity
-mapping(address => mapping(address => uint256)) destructionAmounts
+mapping(address => mapping(address => uint256)) userDonatePoints
 ```
 
 token => user => amount
@@ -696,6 +695,17 @@ function createToken(uint256 subscribeNum_) external payable
 ```
 
 
+### udpateTokenFeeInfo (0x3e222e09)
+
+```solidity
+function udpateTokenFeeInfo(
+    address meToken_,
+    address user_,
+    uint256 destructionAmt_
+) external
+```
+
+
 ### donateForMEToken (0xc183c454)
 
 ```solidity
@@ -812,13 +822,13 @@ function allotBonus(address meToken_, uint256 amount_) external
 ```
 
 
-### addDestructionAmountByVoting (0x4ebdd9d0)
+### addDonatePointsByVoting (0x61d623ec)
 
 ```solidity
-function addDestructionAmountByVoting(
+function addDonatePointsByVoting(
     address meToken_,
     address user_,
-    uint256 destructionAmount_
+    uint256 donatePoints_
 ) external onlyVoting
 ```
 

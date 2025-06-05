@@ -78,7 +78,7 @@
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "destructionAmount",
+        "name": "donatePoints",
         "type": "uint256"
       },
       {
@@ -928,11 +928,11 @@
       },
       {
         "internalType": "uint256",
-        "name": "destructionAmount_",
+        "name": "donatePoints_",
         "type": "uint256"
       }
     ],
-    "name": "addDestructionAmountByVoting",
+    "name": "addDonatePointsByVoting",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -1088,30 +1088,6 @@
       {
         "internalType": "uint256",
         "name": "lpUnlockGap",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "name": "destructionAmounts",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
         "type": "uint256"
       }
     ],
@@ -1516,17 +1492,12 @@
     "outputs": [
       {
         "internalType": "address",
-        "name": "uniswapRouter",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
         "name": "builder",
         "type": "address"
       },
       {
         "internalType": "uint256",
-        "name": "destructionAmount",
+        "name": "donatePoints",
         "type": "uint256"
       },
       {
@@ -1968,6 +1939,29 @@
         "internalType": "address",
         "name": "meToken_",
         "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "user_",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "destructionAmt_",
+        "type": "uint256"
+      }
+    ],
+    "name": "udpateTokenFeeInfo",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "meToken_",
+        "type": "address"
       }
     ],
     "name": "unlockLP",
@@ -2061,6 +2055,30 @@
     "name": "updateMETokenSubscribe",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "userDonatePoints",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
