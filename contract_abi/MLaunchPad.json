@@ -55,6 +55,11 @@
         "internalType": "address",
         "name": "uniswapV2Router_",
         "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "mtokenFactory_",
+        "type": "address"
       }
     ],
     "stateMutability": "nonpayable",
@@ -280,12 +285,6 @@
     "inputs": [
       {
         "indexed": true,
-        "internalType": "uint256",
-        "name": "newMETokenId_",
-        "type": "uint256"
-      },
-      {
-        "indexed": true,
         "internalType": "address",
         "name": "meToken",
         "type": "address"
@@ -294,6 +293,12 @@
         "indexed": true,
         "internalType": "address",
         "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "pair",
         "type": "address"
       },
       {
@@ -841,6 +846,19 @@
     "outputs": [
       {
         "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "MTOKEN_FACTORY",
+    "outputs": [
+      {
+        "internalType": "contract IMTokenFactory",
         "name": "",
         "type": "address"
       }

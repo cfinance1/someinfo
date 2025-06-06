@@ -254,7 +254,7 @@ Parameters:
 ### EventCreateToken
 
 ```solidity
-event EventCreateToken(uint256 indexed newMETokenId_, address indexed meToken, address indexed user, string name, string symbol, uint256 subscribeNum, uint256 label)
+event EventCreateToken(address indexed meToken, address indexed user, address pair, string name, string symbol, uint256 subscribeNum, uint256 label)
 ```
 
 
@@ -331,6 +331,13 @@ bytes32 constant INTERN_SYSTEM = keccak256("INTERN_SYSTEM")
 
 
 ## State variables info
+
+### MTOKEN_FACTORY (0x3218ad16)
+
+```solidity
+contract IMTokenFactory immutable MTOKEN_FACTORY
+```
+
 
 ### UNISWAPV2ROUTER (0xa8b62f7b)
 
@@ -581,7 +588,8 @@ constructor(
     address bottomPool_,
     address voting_,
     address MARKETING_POOL_,
-    address uniswapV2Router_
+    address uniswapV2Router_,
+    address mtokenFactory_
 )
 ```
 
