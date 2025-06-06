@@ -160,25 +160,6 @@
         "internalType": "address",
         "name": "user",
         "type": "address"
-      }
-    ],
-    "name": "EventChangeMETokenBuilder",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "meToken",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "user",
-        "type": "address"
       },
       {
         "indexed": false,
@@ -667,6 +648,31 @@
     "anonymous": false,
     "inputs": [
       {
+        "indexed": true,
+        "internalType": "address",
+        "name": "meToken",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "votingLockTime",
+        "type": "uint256"
+      }
+    ],
+    "name": "EventVotingOver",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
         "indexed": false,
         "internalType": "uint8",
         "name": "version",
@@ -1006,24 +1012,6 @@
         "internalType": "address",
         "name": "meToken_",
         "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "user_",
-        "type": "address"
-      }
-    ],
-    "name": "changeMETokenBuilder",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "meToken_",
-        "type": "address"
       }
     ],
     "name": "claimLPBonus",
@@ -1064,6 +1052,11 @@
       {
         "internalType": "uint256",
         "name": "label_",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "startTime_",
         "type": "uint256"
       }
     ],
@@ -1551,6 +1544,11 @@
         "internalType": "bool",
         "name": "isVoting",
         "type": "bool"
+      },
+      {
+        "internalType": "uint256",
+        "name": "votingLockTime",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -2190,6 +2188,29 @@
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "meToken_",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "user_",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "votingLockTime_",
+        "type": "uint256"
+      }
+    ],
+    "name": "votingOver",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {

@@ -115,6 +115,7 @@ struct TokenFeeInfo {
 	address builder;
 	uint256 donatePoints;
 	bool isVoting;
+	uint256 votingLockTime;
 }
 ```
 
@@ -299,10 +300,10 @@ event EventAllotBonus(address indexed meToken, uint256 amount, uint256 bonusAmt,
 ```
 
 
-### EventChangeMETokenBuilder
+### EventVotingOver
 
 ```solidity
-event EventChangeMETokenBuilder(address indexed meToken, address indexed user)
+event EventVotingOver(address indexed meToken, address user, uint256 votingLockTime)
 ```
 
 
@@ -728,14 +729,15 @@ Return values:
 | :--- | :------ | :---------- |
 | [0]  | uint256 | CSF分红数量     |
 
-### createToken (0x56f698a3)
+### createToken (0xf0d02ec3)
 
 ```solidity
 function createToken(
     string memory name_,
     string memory symbol_,
     uint256 subscribeNum_,
-    uint256 label_
+    uint256 label_,
+    uint256 startTime_
 ) external payable
 ```
 
@@ -841,12 +843,13 @@ function addDonatePointsByVoting(
 ```
 
 
-### changeMETokenBuilder (0x66ba31db)
+### votingOver (0x98f0d45c)
 
 ```solidity
-function changeMETokenBuilder(
+function votingOver(
     address meToken_,
-    address user_
+    address user_,
+    uint256 votingLockTime_
 ) external onlyVoting
 ```
 
