@@ -173,7 +173,12 @@ function getClaimableFees(
 )
     external
     view
-    returns (uint256 platform_, uint256 builder_, uint256 referrer_)
+    returns (
+        uint256 platform_,
+        uint256 builder_,
+        uint256 referrer_,
+        uint256 referrerMEMEAmt_
+    )
 ```
 
 获取可领取手续费
@@ -189,11 +194,12 @@ Parameters:
 
 Return values:
 
-| Name      | Type    | Description         |
-| :-------- | :------ | :------------------ |
-| platform_ | uint256 | 项目方可领取的手续费          |
-| builder_  | uint256 | token的owner可领取的手续费  |
-| referrer_ | uint256 | 推荐人可领取的手续费          |
+| Name             | Type    | Description         |
+| :--------------- | :------ | :------------------ |
+| platform_        | uint256 | 项目方可领取的手续费          |
+| builder_         | uint256 | token的owner可领取的手续费  |
+| referrer_        | uint256 | 推荐人可领取的手续费(CSF)     |
+| referrerMEMEAmt_ | uint256 | 推荐人可领取的手续费(MEME)    |
 
 ### claimToPlatform (0x1b883dbf)
 

@@ -253,7 +253,14 @@ Parameters:
 ### EventCreateToken
 
 ```solidity
-event EventCreateToken(uint256 indexed newMETokenId_, address indexed meToken, address indexed user, string name, string symbol, uint256 subscribeNum, uint256 label, MLaunchPad.LaunchConfig meTokenConf)
+event EventCreateToken(uint256 indexed newMETokenId_, address indexed meToken, address indexed user, string name, string symbol, uint256 subscribeNum, uint256 label)
+```
+
+
+### EventCreateTokenInfo
+
+```solidity
+event EventCreateTokenInfo(address meToken, MLaunchPad.LaunchConfig meTokenConf)
 ```
 
 
@@ -289,13 +296,6 @@ event EventClaimLPBonus(address indexed meToken, address indexed user, uint256 l
 
 ```solidity
 event EventAllotBonus(address indexed meToken, uint256 amount, uint256 bonusAmt, uint256 addPerLPBonus, MLaunchPad.LpBonusInfo info)
-```
-
-
-### EventAddDestructionAmount
-
-```solidity
-event EventAddDestructionAmount(address indexed meToken, address indexed user, uint256 donatePoints, uint256 meTokenDestAmt)
 ```
 
 
