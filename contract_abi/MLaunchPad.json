@@ -101,6 +101,43 @@
         "type": "address"
       },
       {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "addDonatePoint",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "userDonatePoint",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "meTokenDonatePoint",
+        "type": "uint256"
+      }
+    ],
+    "name": "EventAddDonatePointForMEToken",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "meToken",
+        "type": "address"
+      },
+      {
         "indexed": false,
         "internalType": "uint256",
         "name": "amount",
@@ -311,14 +348,26 @@
       },
       {
         "indexed": false,
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "symbol",
+        "type": "string"
+      },
+      {
+        "indexed": false,
         "internalType": "uint256",
-        "name": "userDonatePoint",
+        "name": "subscribeNum",
         "type": "uint256"
       },
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "meTokenDonatePoint",
+        "name": "label",
         "type": "uint256"
       },
       {
@@ -407,18 +456,6 @@
         "indexed": false,
         "internalType": "uint256",
         "name": "addDonatePoint",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "userDonatePoint",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "meTokenDonatePoint",
         "type": "uint256"
       },
       {
@@ -799,6 +836,19 @@
   },
   {
     "inputs": [],
+    "name": "INTERN_SYSTEM",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "MARKETING_POOL",
     "outputs": [
       {
@@ -1015,8 +1065,23 @@
   {
     "inputs": [
       {
+        "internalType": "string",
+        "name": "name_",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "symbol_",
+        "type": "string"
+      },
+      {
         "internalType": "uint256",
         "name": "subscribeNum_",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "label_",
         "type": "uint256"
       }
     ],
@@ -1931,29 +1996,6 @@
       }
     ],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "meToken_",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "user_",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "destructionAmt_",
-        "type": "uint256"
-      }
-    ],
-    "name": "udpateTokenFeeInfo",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
   },
   {

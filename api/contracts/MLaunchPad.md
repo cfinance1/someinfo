@@ -253,14 +253,21 @@ Parameters:
 ### EventCreateToken
 
 ```solidity
-event EventCreateToken(uint256 indexed newMETokenId_, address indexed meToken, address indexed user, uint256 userDonatePoint, uint256 meTokenDonatePoint, MLaunchPad.LaunchConfig meTokenConf)
+event EventCreateToken(uint256 indexed newMETokenId_, address indexed meToken, address indexed user, string name, string symbol, uint256 subscribeNum, uint256 label, MLaunchPad.LaunchConfig meTokenConf)
 ```
 
 
 ### EventDonateForMEToken
 
 ```solidity
-event EventDonateForMEToken(address indexed meToken, address indexed user, uint256 addDonatePoint, uint256 userDonatePoint, uint256 meTokenDonatePoint, bool isOpen)
+event EventDonateForMEToken(address indexed meToken, address indexed user, uint256 addDonatePoint, bool isOpen)
+```
+
+
+### EventAddDonatePointForMEToken
+
+```solidity
+event EventAddDonatePointForMEToken(address indexed meToken, address indexed user, uint256 addDonatePoint, uint256 userDonatePoint, uint256 meTokenDonatePoint)
 ```
 
 
@@ -312,6 +319,13 @@ uint256 constant UID = 1
 
 ```solidity
 address constant BLACK_HOLE = 0x000000000000000000000000000000000000dEaD
+```
+
+
+### INTERN_SYSTEM (0x1f9bbe20)
+
+```solidity
+bytes32 constant INTERN_SYSTEM = keccak256("INTERN_SYSTEM")
 ```
 
 
@@ -688,21 +702,41 @@ Return values:
 | stakeInfo_      | struct MLaunchPad.RetStakeInfo | 参考RetStakeInfo类型数据                          |
 | lpInfo_         | struct MLaunchPad.RetLpInfo    | 参考RetLpInfo类型                               |
 
-### createToken (0x2d571cc4)
+### getClaimableLPBonus (0xb3f7486f)
 
 ```solidity
-function createToken(uint256 subscribeNum_) external payable
+function getClaimableLPBonus(
+    address meToken_,
+    address user_
+) external view returns (uint256)
 ```
 
+获取用户可领取的分红数量
 
-### udpateTokenFeeInfo (0x3e222e09)
+
+Parameters:
+
+| Name     | Type    | Description   |
+| :------- | :------ | :------------ |
+| meToken_ | address | meme token地址  |
+| user_    | address | 用户地址          |
+
+
+Return values:
+
+| Name | Type    | Description |
+| :--- | :------ | :---------- |
+| [0]  | uint256 | CSF分红数量     |
+
+### createToken (0x56f698a3)
 
 ```solidity
-function udpateTokenFeeInfo(
-    address meToken_,
-    address user_,
-    uint256 destructionAmt_
-) external
+function createToken(
+    string memory name_,
+    string memory symbol_,
+    uint256 subscribeNum_,
+    uint256 label_
+) external payable
 ```
 
 
@@ -773,32 +807,6 @@ Parameters:
 | Name     | Type    | Description |
 | :------- | :------ | :---------- |
 | meToken_ | address | MEMEtoken地址 |
-
-### getClaimableLPBonus (0xb3f7486f)
-
-```solidity
-function getClaimableLPBonus(
-    address meToken_,
-    address user_
-) external view returns (uint256)
-```
-
-获取用户可领取的分红数量
-
-
-Parameters:
-
-| Name     | Type    | Description   |
-| :------- | :------ | :------------ |
-| meToken_ | address | meme token地址  |
-| user_    | address | 用户地址          |
-
-
-Return values:
-
-| Name | Type    | Description |
-| :--- | :------ | :---------- |
-| [0]  | uint256 | CSF分红数量     |
 
 ### claimLPBonus (0x403782ef)
 
