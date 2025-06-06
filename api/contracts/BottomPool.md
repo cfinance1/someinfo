@@ -164,6 +164,31 @@ function initialize() public initializer
 ```
 
 
+### getMETokenInfo (0xe55e8705)
+
+```solidity
+function getMETokenInfo(
+    address meToken_
+) external view returns (uint256 principals_, uint256 asset_)
+```
+
+获取MEMEtoken的资金信息
+
+
+Parameters:
+
+| Name     | Type    | Description |
+| :------- | :------ | :---------- |
+| meToken_ | address | token地址     |
+
+
+Return values:
+
+| Name        | Type    | Description |
+| :---------- | :------ | :---------- |
+| principals_ | uint256 | 本金数量        |
+| asset_      | uint256 | sCSM的数量     |
+
 ### sellMEToken (0x9d90e94a)
 
 ```solidity

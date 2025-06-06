@@ -179,7 +179,7 @@ address mainPair
 ### minAllotFee (0x3c69a8d2)
 
 ```solidity
-uint256 minAllotFee = 1e24
+uint256 minAllotFee = 1e25
 ```
 
 

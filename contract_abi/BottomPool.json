@@ -379,6 +379,30 @@
         "internalType": "address",
         "name": "meToken_",
         "type": "address"
+      }
+    ],
+    "name": "getMETokenInfo",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "principals_",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "asset_",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "meToken_",
+        "type": "address"
       },
       {
         "internalType": "uint256",
